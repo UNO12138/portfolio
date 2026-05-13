@@ -1,0 +1,616 @@
+/* ============================================
+   本地字体定义
+   ============================================ */
+@font-face {
+    font-family: 'Alibaba PuHuiTi 2.0';
+    src: url('ziti/Alibaba_PuHuiTi_2.0_55_Regular_55_Regular_鍓湰.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alibaba PuHuiTi 2.0';
+    src: url('ziti/Alibaba_PuHuiTi_2.0_55_Regular_85_Bold_鍓湰.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================
+   全局样式重置与基础设置
+   ============================================ */
+
+/* 重置所有元素的默认边距和填充 */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 页面根元素样式 */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* 字符跳动背景 Canvas */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* 页面主体样式 */
+body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #0a0a0a;
+    color: #e8e8e8;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 确保主要内容在背景之上 */
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   顶部导航栏样式
+   ============================================ */
+
+.header {
+    position: relative;
+    padding: 24px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 导航栏内部布局 */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 左侧导航链接容器 */
+.nav-left {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+}
+
+/* 右侧导航链接容器 */
+.nav-right {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+}
+
+/* 导航链接通用样式 */
+.nav-link {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.48);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    line-height: 21px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+/* 导航链接悬停效果 */
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 当前选中的导航链接 */
+.nav-link-active {
+    color: #ffffff;
+}
+
+/* 语言切换容器 */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 语言选项 */
+.lang-item {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.48);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* 语言选项悬停效果 */
+.lang-item:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 当前选中的语言 */
+.lang-active {
+    color: #ffffff;
+}
+
+/* 语言分隔符 */
+.lang-divider {
+    font-size: 15px;
+    font-weight: 250;
+    line-height: 21px;
+    color: rgba(255, 255, 255, 0.48);
+}
+
+/* uno 链接样式 */
+.nav-right > .nav-link {
+    letter-spacing: 0.04em;
+    color: #ffffff;
+}
+
+/* uno 链接悬停效果 */
+.nav-right > .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   页面主内容区域
+   ============================================ */
+
+.main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+/* ============================================
+   英雄区域（主标题区域）
+   ============================================ */
+
+.hero {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid #222;
+}
+
+/* 英雄区域内容容器 */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* 主标题样式 - 使用衬线字体 */
+.hero-title {
+    font-family: 'Noto Serif SC', Georgia, serif;
+    font-size: 88px;
+    font-weight: 600;
+    line-height: 105px;
+    color: #f5f5f5;
+    letter-spacing: 0px;
+    padding-top: 160px;
+    padding-bottom: 0px;
+    min-height: 210px;
+}
+
+/* 打字机包装器 - 预占两行空间 */
+.typewriter-wrapper {
+    display: block;
+    min-height: 210px;
+}
+
+/* 打字机光标 */
+.typewriter-cursor {
+    display: inline;
+    color: #f5f5f5;
+    animation: cursorBlink 0.8s step-end infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 个人信息和联系信息容器 */
+.hero-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+/* 左侧个人信息 */
+.hero-info-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* 个人元信息（学校、时间等） */
+.hero-meta {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    font-family: 'Noto Serif SC', 'SimSun', '宋体', serif;
+}
+
+/* 个人描述文字 */
+.hero-description {
+    font-size: 18px;
+    color: #cccccc;
+    line-height: 1.8;
+    width: 960px;
+    font-family: 'Noto Serif SC', 'SimSun', '宋体', serif;
+    letter-spacing: 1px;
+}
+
+/* 右侧联系信息 */
+.hero-info-right {
+    min-width: 200px;
+}
+
+/* 联系信息区域 */
+.contact-section {
+    text-align: right;
+}
+
+/* 联系信息标签 */
+.contact-label {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+/* 联系信息项 */
+.contact-item {
+    font-size: 14px;
+    color: #b0b0b0;
+    line-height: 1.8;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+/* ============================================
+   专业技能区域
+   ============================================ */
+
+.skills-section {
+    padding: 80px 0;
+    border-bottom: 1px solid #222;
+}
+
+/* 技能区域内容布局 */
+.skills-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* 左侧技能列表 */
+.skills-left {
+    flex: 1;
+}
+
+/* 区域标题通用样式 - 专业技能 */
+.section-title {
+    font-family: 'Noto Serif SC', 'Source Han Serif CN', 'SimSun', '宋体', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+    line-height: 36px;
+}
+
+/* 技能分类容器 */
+.skill-category {
+    margin-bottom: 40px;
+}
+
+/* 技能分类标题 */
+.skill-category-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+    line-height: 36px;
+}
+
+/* 技能列表 */
+.skill-list {
+    list-style: none;
+}
+
+/* 技能列表项 */
+.skill-list li {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 36px;
+    letter-spacing: 0.04em;
+    padding-left: 16px;
+    position: relative;
+}
+
+/* 技能列表项前的装饰点 */
+.skill-list li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 技能列表项中的英文部分 */
+.skill-en {
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.48);
+}
+
+/* 右侧工具图标区域 */
+.skills-right {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 40px;
+}
+
+/* 工具图标容器 */
+.tools-icons {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+/* 单个工具图标 */
+.tool-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+/* 工具图标悬停效果 */
+.tool-icon:hover {
+    opacity: 1;
+}
+
+/* 图片图标样式 */
+.tool-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================
+   项目经历区域
+   ============================================ */
+
+.projects-section {
+    padding: 80px 0;
+    border-bottom: 1px solid #222;
+}
+
+/* 项目列表容器 */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* 单个项目条目 */
+.project-item {
+    padding-bottom: 48px;
+}
+
+/* 最后一个项目不显示底部间距 */
+.project-item:last-child {
+    padding-bottom: 0;
+}
+
+/* 项目头部信息（标题、角色、时间） */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* 项目标题和角色容器 */
+.project-title-wrap {
+    flex: 1;
+}
+
+/* 项目标题 */
+.project-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f5f5f5;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+}
+
+/* 项目角色 */
+.project-role {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.02em;
+}
+
+/* 项目时间 */
+.project-date {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.48);
+    white-space: nowrap;
+    margin-left: 20px;
+    text-align: right;
+    letter-spacing: 0.06em;
+}
+
+/* 项目描述文字 */
+.project-description {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 180%;
+    letter-spacing: 0.02em;
+    max-width: 620px;
+    margin-bottom: 12px;
+}
+
+/* 最后一个描述文字不显示底部间距 */
+.project-description:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   页面底部引用区域
+   ============================================ */
+
+.footer {
+    padding: 60px 0 80px;
+}
+
+/* 引用块样式 */
+.quote {
+    padding-left: 0;
+}
+
+/* 引用文字 */
+.quote p {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* ============================================
+   响应式设计 - 适配不同设备
+   ============================================ */
+
+/* 平板设备适配（最大宽度 1024px） */
+@media screen and (max-width: 1024px) {
+    .hero-title {
+        font-size: 56px;
+    }
+    
+    .hero-info {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .hero-info-right {
+        align-self: flex-start;
+    }
+    
+    .contact-section {
+        text-align: left;
+    }
+    
+    .skills-content {
+        flex-direction: column;
+    }
+    
+    .skills-right {
+        justify-content: flex-start;
+    }
+}
+
+/* 手机设备适配（最大宽度 768px） */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 16px 24px;
+    }
+    
+    .main {
+        padding: 0 24px;
+    }
+    
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+    
+    .hero-title {
+        font-size: 40px;
+        letter-spacing: 2px;
+    }
+    
+    .hero-content {
+        gap: 40px;
+    }
+    
+    .hero-info {
+        gap: 30px;
+    }
+    
+    .project-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .project-date {
+        margin-left: 0;
+    }
+    
+    .skills-section,
+    .projects-section {
+        padding: 60px 0;
+    }
+    
+    .tools-icons {
+        flex-wrap: wrap;
+    }
+}
+
+/* 小屏手机适配（最大宽度 480px） */
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .nav-left,
+    .nav-right {
+        gap: 16px;
+    }
+    
+    .nav-link {
+        font-size: 13px;
+    }
+}
+
+/* ============================================
+   打印样式优化
+   ============================================ */
+
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+    
+    .header {
+        position: static;
+        background-color: transparent;
+    }
+    
+    .hero-title {
+        color: #000;
+    }
+}

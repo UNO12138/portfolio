@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品集</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- 阿里巴巴普惠体已通过本地 @font-face 引入 -->
+</head>
+<body>
+    <!-- 字符跳动背景 Canvas -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- 页面顶部导航栏 -->
+    <header class="header">
+        <nav class="nav">
+            <!-- 左侧导航链接 -->
+            <div class="nav-left">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#info" class="nav-link nav-link-active">Info</a>
+            </div>
+            <!-- 右侧语言切换和其他链接 -->
+            <div class="nav-right">
+                <div class="lang-switch">
+                    <span class="lang-item">EN</span>
+                    <span class="lang-divider">/</span>
+                    <span class="lang-item lang-active">CN</span>
+                </div>
+                <span class="nav-link">uno</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面主要内容区域 -->
+    <main class="main">
+        <!-- 英雄区域：包含主标题和个人基本信息 -->
+        <section class="hero">
+            <div class="hero-content">
+                <!-- 主标题，使用大字号衬线字体 -->
+                <h1 class="hero-title" id="hero-title">
+                    <span class="typewriter-wrapper">
+                        <span class="typewriter-text"></span><span class="typewriter-cursor">|</span>
+                    </span>
+                </h1>
+                
+                <!-- 个人信息和联系信息的容器 -->
+                <div class="hero-info">
+                    <!-- 左侧：个人基本信息 -->
+                    <div class="hero-info-left">
+                        <p class="hero-meta">
+                            广州美术学院 | 2023.9 - 2027.6(预期) | 智能交互设计 | 本科
+                        </p>
+                        <p class="hero-description">
+                            我是蔡曜廷，一位就读于广州美术学院智能交互设计专业的大三学生。我热衷于研究微观交互，相信有趣的设计能打破沟通的壁垒，让技术在传递信息的同时，也传递治愈与惊喜。
+                        </p>
+                    </div>
+                    <!-- 右侧：联系信息 -->
+                    <div class="hero-info-right">
+                        <div class="contact-section">
+                            <p class="contact-label">联系我</p>
+                            <p class="contact-item">2540335419@qq.com</p>
+                            <p class="contact-item">+86 182-0099-1482</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 专业技能和主修课程区域 -->
+        <section class="skills-section">
+            <div class="skills-content">
+                <!-- 左侧：专业技能列表 -->
+                <div class="skills-left">
+                    <h2 class="section-title">专业技能</h2>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">设计与创意</h3>
+                        <ul class="skill-list">
+                            <li>界面与视觉传达 <span class="skill-en">| Figma / PS / HTML5</span></li>
+                            <li>交互设计与原型控制 <span class="skill-en">| Cursor / Trae / Arduino</span></li>
+                            <li>三维建模与渲染 <span class="skill-en">| Rhino / KeyShot</span></li>
+                            <li>游戏设计与开发 <span class="skill-en">| Unity / Stable Diffusion</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">主修课程</h3>
+                        <ul class="skill-list">
+                            <li>用户体验设计 <span class="skill-en">| User Experience (UX) Design</span></li>
+                            <li>交互界面与系统设计 <span class="skill-en">| Interactive Interface & System Design</span></li>
+                            <li>设计心理学 <span class="skill-en">| Psychology of Design</span></li>
+                            <li>参数化设计 <span class="skill-en">| Parametric Design</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 右侧：设计工具图标 -->
+                <div class="skills-right">
+                    <div class="tools-icons">
+                        <!-- Figma 图标 -->
+                        <div class="tool-icon" title="Figma">
+                            <img src="icon/figma-color (2) 2.png" alt="Figma">
+                        </div>
+                        <!-- Rhino 图标 -->
+                        <div class="tool-icon" title="Rhino">
+                            <img src="icon/Frame.png" alt="Rhino">
+                        </div>
+                        <!-- Photoshop 图标 -->
+                        <div class="tool-icon" title="Photoshop">
+                            <img src="icon/Ps.png" alt="Photoshop">
+                        </div>
+                        <!-- Unity 图标 -->
+                        <div class="tool-icon" title="Unity">
+                            <img src="icon/unity.png" alt="Unity">
+                        </div>
+                        <!-- Midjourney 图标 -->
+                        <div class="tool-icon" title="Midjourney">
+                            <img src="icon/midjourney 1.png" alt="Midjourney">
+                        </div>
+                        <!-- Keyshot 图标 -->
+                        <div class="tool-icon" title="Keyshot">
+                            <img src="icon/ks.png" alt="Keyshot">
+                        </div>
+                        <!-- Arduino 图标 -->
+                        <div class="tool-icon" title="Arduino">
+                            <img src="icon/arduino.png" alt="Arduino">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目经历区域 -->
+        <section class="projects-section">
+            <h2 class="section-title">项目经历</h2>
+            
+            <div class="projects-list">
+                <!-- 项目1 -->
+                <article class="project-item">
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">腾讯时光家园小程序体验优化</h3>
+                            <p class="project-role">组长/UX设计</p>
+                        </div>
+                        <span class="project-date">2025.4 - 2025.5</span>
+                    </div>
+                    <p class="project-description">
+                        在课程与企业合作的项目制框架下，基于腾讯生态体系内的时光家园适老化小程序平台，进行核心交互功能的重新设计
+                    </p>
+                    <p class="project-description">
+                        前期积极配合用户研究，针对需求输出核心界面的改进设计方案。后期负责信息架构重构，基于菲茨定律与适老化设计原则，制定了全局的按键布局、尺寸与热区规范，确保了交互的易学性与容错率，为后续的UI视觉落地提供了坚实的框架基础
+                    </p>
+                </article>
+
+                <!-- 项目2 -->
+                <article class="project-item">
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">宿舍噪音调解系统研发</h3>
+                            <p class="project-role">组长/软硬件交互原型设计</p>
+                        </div>
+                        <span class="project-date">2025.9 - 2025.11</span>
+                    </div>
+                    <p class="project-description">
+                        针对大学生宿舍噪音引发人际冲突痛点，解决噪音产生后如何有效沟通的问题，搭建多模态反馈逻辑，实现噪音场景下的非接触式干预
+                    </p>
+                    <p class="project-description">
+                        硬件端主导了原型的电路连接与方案制定，并参与编程；软件端负责制定硬件交互架构与 UX 规范，带领团队推动方案落地，有效解决宿舍噪音干预场景的实际需求；主导宿舍噪音调解系统设计与开发，以主要发明人身份提交国家发明专利申请，目前处于受理阶段。
+                    </p>
+                </article>
+
+                <!-- 项目3 -->
+                <article class="project-item">
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">锦鹏外骨骼校企优化项目</h3>
+                            <p class="project-role">组长/算法研究与交互逻辑设计</p>
+                        </div>
+                        <span class="project-date">2025.12 - 2026.1</span>
+                    </div>
+                    <p class="project-description">
+                        承担核心步态识别算法的优化研究。从零开始构建对神经网络的理解，并参考 Hypershell 的 MotionEngine 技术，提出了一套基于 LSTM + CNN 的多模态融合方案。通过 卡尔曼滤波实现高频 IMU 数据与低频角度数据的特征对齐与加权融合，并引入强化学习构建仿真训练素材，显著提升了设备对复杂地形（如攀爬、坡地）的预测精度。
+                    </p>
+                </article>
+
+                <!-- 项目4 -->
+                <article class="project-item">
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">盲人可穿戴导航系统概念设计</h3>
+                            <p class="project-role">针对 iF Design Student Award 2026</p>
+                        </div>
+                        <span class="project-date">2025.12 - 2026.1</span>
+                    </div>
+                    <p class="project-description">
+                        该项目是针对 iF 设计奖 提交标准进行的专项创作。我聚焦于全球 4300 万视障群体的出行难题，设计了一套结合 AI 视觉识别与触觉反馈的躯干挂载式导航设备。设计逻辑严密对齐 iF 赛事的评审维度：从技术可行性到社会影响力，通过肩部与髋部的旋转反馈机制，将复杂的空间信息转化为直观的身体感知。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 页面底部引用区域 -->
+        <footer class="footer">
+            <blockquote class="quote">
+                <p>人们对于设计的反应有三种——可以，不行，还有 哇！而"哇"是我们追求的目标。    —— 米尔顿·格拉瑟</p>
+            </blockquote>
+        </footer>
+    </main>
+
+    <!-- 字符跳动背景脚本 -->
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let columns;
+        const fontSize = 16;
+        
+        // 字符集：数字、字母、符号
+        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*()_+-=[]{}|;:,.<>?/~`';
+        
+        // 基础颜色 #686868 (104, 104, 104)
+        const baseColor = { r: 104, g: 104, b: 104 };
+        
+        // 存储每个位置的字符和亮度
+        let grid = [];
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            columns = Math.floor(width / fontSize);
+            const rows = Math.floor(height / fontSize);
+            
+            grid = [];
+            for (let i = 0; i < columns; i++) {
+                grid[i] = [];
+                for (let j = 0; j < rows; j++) {
+                    // 初始状态：大部分为0（完全黑），少量亮起
+                    const rand = Math.random();
+                    let initialBrightness;
+                    if (rand < 0.05) {
+                        initialBrightness = 0.2 + Math.random() * 0.4;  // 5% 较亮
+                    } else if (rand < 0.15) {
+                        initialBrightness = 0.2 + Math.random() * 0.2; // 10% 中间态
+                    } else {
+                        initialBrightness = 0; // 85% 完全黑
+                    }
+                    
+                    grid[i][j] = {
+                        char: chars[Math.floor(Math.random() * chars.length)],
+                        brightness: initialBrightness,
+                        targetBrightness: initialBrightness,
+                        changeSpeed: Math.random() * 0.005 + 0.001,
+                        charChangeTimer: Math.random() * 100 + 40,
+                        flashTimer: Math.random() * 1200 + 300
+                    };
+                }
+            }
+        }
+
+        // 鼠标位置
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function draw() {
+            // 半透明黑色覆盖，产生拖尾效果
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.08)';
+            ctx.fillRect(0, 0, width, height);
+            
+            // 鼠标周围68px区域用径向渐变覆盖，边缘柔和过渡
+            const clearRadius = 68;
+            if (mouseX > 0 || mouseY > 0) {
+                const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, clearRadius);
+                gradient.addColorStop(0, 'rgba(0, 0, 0, 0.6)');
+                gradient.addColorStop(0.6, 'rgba(0, 0, 0, 0.3)');
+                gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(mouseX, mouseY, clearRadius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.font = '400 ' + fontSize + 'px "Alibaba PuHuiTi 2.0", "Alibaba PuHuiTi", sans-serif';
+            
+            const rows = Math.floor(height / fontSize);
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxDist = Math.sqrt(centerX * centerX + centerY * centerY);
+            
+            for (let i = 0; i < columns; i++) {
+                for (let j = 0; j < rows; j++) {
+                    const cell = grid[i][j];
+                    
+                    // 随机闪烁效果
+                    cell.flashTimer--;
+                    if (cell.flashTimer <= 0) {
+                        cell.flashTimer = Math.random() * 1200 + 300;
+                        if (Math.random() < 0.15) {
+                            cell.brightness = 0.5 + Math.random() * 0.25;
+                        }
+                    }
+                    
+                    // 亮度衰减：亮起的字符有机会完全消失
+                    if (cell.brightness > 0.05 && Math.random() < 0.008) {
+                        cell.brightness = 0; // 立即完全消失
+                        cell.targetBrightness = 0;
+                    }
+                    
+                    // 随机改变字符
+                    cell.charChangeTimer--;
+                    if (cell.charChangeTimer <= 0) {
+                        cell.charChangeTimer = Math.random() * 100 + 40;
+                        if (Math.random() < 0.3) {
+                            cell.char = chars[Math.floor(Math.random() * chars.length)];
+                        }
+                    }
+                    
+                    // 计算基础颜色 - 基于 #686868 的灰色调
+                    let intensity = cell.brightness;
+                    
+                    // 如果亮度为0，直接跳过绘制（完全透明）
+                    if (intensity <= 0) {
+                        continue;
+                    }
+                    
+                    // 四周黑影收敛效果（暗角）
+                    const cellX = i * fontSize + fontSize / 2;
+                    const cellY = j * fontSize + fontSize / 2;
+                    const distToCenter = Math.sqrt((cellX - centerX) ** 2 + (cellY - centerY) ** 2);
+                    const vignetteFactor = 1 - (distToCenter / maxDist) * 0.5; // 边缘暗 50%
+                    intensity *= Math.max(0.2, vignetteFactor);
+                    
+                    // 鼠标为中心的暗区效果
+                    const distToMouse = Math.sqrt((cellX - mouseX) ** 2 + (cellY - mouseY) ** 2);
+                    const mouseRadius = 120; // 暗区半径
+                    if (distToMouse < mouseRadius) {
+                        const mouseFactor = distToMouse / mouseRadius; // 0 到 1
+                        intensity *= 0.0 + 1.0 * mouseFactor; // 中心完全暗，边缘恢复
+                    }
+                    
+                    // 鼠标悬停效果：靠近鼠标的字符变黑
+                    const hoverRadius = 88; // 悬停影响半径
+                    if (distToMouse < hoverRadius) {
+                        intensity = 0; // 完全变黑（隐藏）
+                    }
+                    
+                    // 再次检查，如果经过各种效果后亮度为0，跳过绘制
+                    if (intensity <= 0) {
+                        continue;
+                    }
+                    
+                    const r = Math.floor(baseColor.r * intensity);
+                    const g = Math.floor(baseColor.g * intensity);
+                    const b = Math.floor(baseColor.b * intensity);
+                    const alpha = intensity * 0.5;
+                    
+                    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                    ctx.fillText(cell.char, i * fontSize, j * fontSize + fontSize);
+                }
+            }
+            
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+
+        // 打字机效果 - 只播放一次
+        const titleLine1 = '让设计';
+        const titleLine2 = '成为情绪的容器';
+        const typewriterText = document.querySelector('.typewriter-text');
+        const typewriterCursor = document.querySelector('.typewriter-cursor');
+        let charIndex = 0;
+        let currentLine = 1;
+        let isComplete = false;
+        
+        function typeWriter() {
+            if (isComplete) return;
+            
+            if (currentLine === 1) {
+                if (charIndex < titleLine1.length) {
+                    typewriterText.textContent += titleLine1[charIndex];
+                    charIndex++;
+                    setTimeout(typeWriter, 100 + Math.random() * 75);
+                } else {
+                    // 第一行打完，换行
+                    typewriterText.innerHTML += '<br>';
+                    currentLine = 2;
+                    charIndex = 0;
+                    setTimeout(typeWriter, 187.5);
+                }
+            } else if (currentLine === 2) {
+                if (charIndex < titleLine2.length) {
+                    const currentText = typewriterText.innerHTML;
+                    // 在 <br> 后添加字符
+                    const brIndex = currentText.lastIndexOf('<br>');
+                    const beforeBr = currentText.substring(0, brIndex + 4);
+                    const afterBr = currentText.substring(brIndex + 4);
+                    typewriterText.innerHTML = beforeBr + afterBr + titleLine2[charIndex];
+                    charIndex++;
+                    setTimeout(typeWriter, 100 + Math.random() * 75);
+                } else {
+                    // 全部打完，隐藏光标
+                    isComplete = true;
+                    typewriterCursor.style.display = 'none';
+                }
+            }
+        }
+        
+        // 页面加载后开始打字
+        setTimeout(typeWriter, 500);
+    </script>
+</body>
+</html>
